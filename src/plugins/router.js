@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomePage from "../features/Home.vue";
-import AuthPage from "../features/Authentication.vue";
-import PageNotFound from "../features/error responces/Error_404.vue"
+import HomePage from "../features/ContentHome.vue";
+import AuthPage from "../features/AuthenticationForm.vue";
+import PageNotFound from "../features/error responces/Error_404.vue";
 
 const routes = [
   {

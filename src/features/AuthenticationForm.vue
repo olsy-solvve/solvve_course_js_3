@@ -1,7 +1,7 @@
 <script></script>
 
 <template>
-  <main>Page Not Found (404)</main>
+  <main>Authentication Form</main>
 </template>
 
 <style></style>
