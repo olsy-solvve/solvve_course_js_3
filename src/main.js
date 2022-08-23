@@ -12,6 +12,6 @@ app.use(PrimeVue, { ripple: true });
 app.component(`Menubar`, Menubar);
 import Router from "./plugins/router.js";
 import "./assets/main.css";
-const app = createApp(App);
+
 app.use(Router);
 app.mount("#app");
