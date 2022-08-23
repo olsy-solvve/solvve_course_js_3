@@ -1,40 +1,35 @@
+<template>
+  <div>
+    <Menubar :model="items">
+      <template #end>May the Force be with you</template>
+    </Menubar>
+  </div>
+</template>
+
 <script>
+import axios from "axios";
 export default {
   data() {
-    return {
-      menuItems: [
-        { title: "Home", link: "/", icon: "" },
-        { title: "My Dashboard", link: "/dashbord", icon: "" },
-        { title: "Shop", link: "/shop", icon: "" },
-      ],
-      count: 0,
-    };
+    return { items: [] };
   },
-
-  mounted() {
-    setTimeout(() => {
-      this.menuItems.push({ title: "Shop2", link: "/shop2", icon: "" });
-    }, 5000);
+  created() {
+    const root = "https://swapi.dev/api/";
+    axios.get(root, {}, {}).then((res) => {
+        Object.entries(res.data).forEach(([key, value]) => {
+        let nameOfCategory = key.charAt(0).toUpperCase() + key.slice(1);
+        this.items.push({
+          label: nameOfCategory,
+          icon: "pi pi-fw pi-box",
+          url: value,
+        });
+      });
+    });
   },
 };
 </script>
 
-<template>
-  <header>
-    <nav>
-      <ul>
-        <li v-for="(item, index) in menuItems" :key="index" @click="count++">
-          {{ item.title }}
-        </li>
-      </ul>
-    </nav>
-
-    <b>{{ count }}</b>
-  </header>
-</template>
-
-<style scoped>
-ul {
-  background-color: red;
+<style>
+.style {
+  margin-right: "auto";
 }
 </style>
