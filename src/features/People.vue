@@ -25,7 +25,7 @@
       </template>
       <template #grid="slotProps">
         <div style="padding: 0.5em" class="p-col-12 p-md-3">
-          <Panel :header="slotProps.data.name" style="text-align: center">
+          <PanelVue :header="slotProps.data.name" style="text-align: center">
             <div class="people-detail">
               height: {{ slotProps.data.height }}<br />
               mass: {{ slotProps.data.mass }}<br />
@@ -35,17 +35,17 @@
               birth_year: {{ slotProps.data.birth_year }}<br />
               gender: {{ slotProps.data.gender }}
             </div>
-          </Panel>
+          </PanelVue>
         </div>
       </template>
     </DataView>
   </div>
-  <Paginator
+  <PaginatorVue
     :rows="10"
     :totalRecords="totalItemsCount"
     v-model:first="offset"
     @page="onPage($event)"
-  ></Paginator>
+  ></PaginatorVue>
 </template>
 
 <script>
