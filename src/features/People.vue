@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DataView :value="items" layout='grid'>
+    <DataView :value="items" layout="grid">
       <template #list="slotProps">
         <div class="p-col-12">
           <div class="people-details">
@@ -27,21 +27,25 @@
         <div style="padding: 0.5em" class="p-col-12 p-md-3">
           <Panel :header="slotProps.data.name" style="text-align: center">
             <div class="people-detail">
-            height: {{ slotProps.data.height }}<br>
-            mass: {{ slotProps.data.mass }}<br>
-	        hair_color: {{ slotProps.data.hair_color }}<br>
-	        skin_color:  {{ slotProps.data.skin_color }}<br>
-	        eye_color:  {{ slotProps.data.eye_color }}<br>
-            birth_year:  {{ slotProps.data.birth_year }}<br>
-	        gender:  {{ slotProps.data.gender }}
-
+              height: {{ slotProps.data.height }}<br />
+              mass: {{ slotProps.data.mass }}<br />
+              hair_color: {{ slotProps.data.hair_color }}<br />
+              skin_color: {{ slotProps.data.skin_color }}<br />
+              eye_color: {{ slotProps.data.eye_color }}<br />
+              birth_year: {{ slotProps.data.birth_year }}<br />
+              gender: {{ slotProps.data.gender }}
             </div>
           </Panel>
         </div>
       </template>
     </DataView>
   </div>
-<Paginator :rows="10" :totalRecords="totalItemsCount" v-model:first="offset" @page="onPage($event)"></Paginator>
+  <Paginator
+    :rows="10"
+    :totalRecords="totalItemsCount"
+    v-model:first="offset"
+    @page="onPage($event)"
+  ></Paginator>
 </template>
 
 <script>
@@ -53,31 +57,30 @@ export default {
       items: [],
       totalItemsCount: 0,
       offset: 20,
-      };
+    };
   },
 
-    created() {
+  created() {
     const root = "https://swapi.dev/api/people/";
     axios.get(root, {}, {}).then((res) => {
-    Object.entries(res.data.results).forEach(([key, value]) => {
-    this.totalItemsCount = res.data.count 
-    this.items.push(value)
-    });});
-       
+      Object.entries(res.data.results).forEach(([key, value]) => {
+        this.totalItemsCount = res.data.count;
+        this.items.push(value);
+      });
+    });
   },
-   methods: {
-     onPage(event) {
-    const root = `https://swapi.dev/api/people/?page=${event.page+1}`;
-    axios.get(root, {}, {}).then((res) => {
-    this.items = []
-    Object.entries(res.data.results).forEach(([key, value]) => {
-    this.totalItemsCount = res.data.count 
-    this.items.push(value)
-     });});
+  methods: {
+    onPage(event) {
+      const root = `https://swapi.dev/api/people/?page=${event.page + 1}`;
+      axios.get(root, {}, {}).then((res) => {
+        this.items = [];
+        Object.entries(res.data.results).forEach(([key, value]) => {
+          this.totalItemsCount = res.data.count;
+          this.items.push(value);
+        });
+      });
     },
-   }
-
-  
+  },
 };
 </script>
 
@@ -93,7 +96,7 @@ body {
 div {
   font-size: 12px;
   display: flex;
-  display:inline-block;
+  display: inline-block;
   align-items: center;
 }
 </style>
