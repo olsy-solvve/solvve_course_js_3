@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../features/ContentHome.vue";
 import AuthPage from "../features/AuthenticationForm.vue";
 import People from "../features/People.vue";
+import Vehicles from "../features/Vehicles.vue";
+import Planets from "../features/Planets.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
-
+//import
 const routes = [
   {
     path: "/",
@@ -14,6 +16,16 @@ const routes = [
     path: "/people",
     name: "People",
     component: People,
+  },
+  {
+    path: "/Vehicles",
+    name: "Vehicles",
+    component: Vehicles,
+  },
+  {
+    path: "/Planets",
+    name: "Planets",
+    component: Planets,
   },
   {
     path: "/login",

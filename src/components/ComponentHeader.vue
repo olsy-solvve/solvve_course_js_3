@@ -20,7 +20,11 @@ export default {
       url: `/`,
     });
     axios.get(root, {}, {}).then((res) => {
+<<<<<<< HEAD
       Object.entries(res.data).forEach(([key, value]) => {
+=======
+      Object.entries(res.data).forEach(([key]) => {
+>>>>>>> origin/master
         let nameOfCategory = key.charAt(0).toUpperCase() + key.slice(1);
         this.items.push({
           label: nameOfCategory,

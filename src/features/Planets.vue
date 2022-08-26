@@ -3,7 +3,7 @@
     <DataView :value="items" layout="grid">
       <template #list="slotProps">
         <div class="p-col-12">
-          <div class="people-details">
+          <div class="planets-details">
             <div>
               <div class="p-grid">
                 <div class="p-col-12">
@@ -26,34 +26,27 @@
       <template #grid="slotProps">
         <div style="padding: 0.5em" class="p-col-12 p-md-3">
           <PanelVue :header="slotProps.data.name" style="text-align: center">
-            <div class="people-detail">
-              height: {{ slotProps.data.height }}<br />
-              mass: {{ slotProps.data.mass }}<br />
-              hair_color: {{ slotProps.data.hair_color }}<br />
-              skin_color: {{ slotProps.data.skin_color }}<br />
-              eye_color: {{ slotProps.data.eye_color }}<br />
-              birth_year: {{ slotProps.data.birth_year }}<br />
-              gender: {{ slotProps.data.gender }}
+            <div class="planets-detail">
+              rotation_period: {{ slotProps.data.rotation_period }}<br />
+              orbital_period: {{ slotProps.data.orbital_period }}<br />
+              diameter: {{ slotProps.data.diameter }}<br />
+              climate: {{ slotProps.data.climate }}<br />
+              gravity: {{ slotProps.data.gravity }}<br />
+              terrain: {{ slotProps.data.terrain }}<br />
+              surface_water: {{ slotProps.data.surface_water }}<br />
+              population: {{ slotProps.data.population }}<br />
             </div>
           </PanelVue>
         </div>
       </template>
     </DataView>
   </div>
-<<<<<<< HEAD
-  <Paginator
-=======
   <PaginatorVue
->>>>>>> origin/master
     :rows="10"
     :totalRecords="totalItemsCount"
     v-model:first="offset"
     @page="onPage($event)"
-<<<<<<< HEAD
-  ></Paginator>
-=======
   ></PaginatorVue>
->>>>>>> origin/master
 </template>
 
 <script>
@@ -69,30 +62,24 @@ export default {
   },
 
   created() {
-    const root = "https://swapi.dev/api/people/";
+    const root = "https://swapi.dev/api/planets/";
     axios.get(root, {}, {}).then((res) => {
       Object.entries(res.data.results).forEach(([key, value]) => {
         this.totalItemsCount = res.data.count;
         this.items.push(value);
-<<<<<<< HEAD
-=======
         this.key = key;
->>>>>>> origin/master
       });
     });
   },
   methods: {
     onPage(event) {
-      const root = `https://swapi.dev/api/people/?page=${event.page + 1}`;
+      const root = `https://swapi.dev/api/planets/?page=${event.page + 1}`;
       axios.get(root, {}, {}).then((res) => {
         this.items = [];
         Object.entries(res.data.results).forEach(([key, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
-<<<<<<< HEAD
-=======
           this.key = key;
->>>>>>> origin/master
         });
       });
     },
