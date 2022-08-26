@@ -40,20 +40,17 @@
       </template>
     </DataView>
   </div>
-<<<<<<< HEAD
-  <Paginator
-=======
+
+  
+
   <PaginatorVue
->>>>>>> origin/master
+
     :rows="10"
     :totalRecords="totalItemsCount"
     v-model:first="offset"
     @page="onPage($event)"
-<<<<<<< HEAD
-  ></Paginator>
-=======
+
   ></PaginatorVue>
->>>>>>> origin/master
 </template>
 
 <script>
@@ -74,10 +71,7 @@ export default {
       Object.entries(res.data.results).forEach(([key, value]) => {
         this.totalItemsCount = res.data.count;
         this.items.push(value);
-<<<<<<< HEAD
-=======
         this.key = key;
->>>>>>> origin/master
       });
     });
   },
@@ -89,10 +83,7 @@ export default {
         Object.entries(res.data.results).forEach(([key, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
-<<<<<<< HEAD
-=======
           this.key = key;
->>>>>>> origin/master
         });
       });
     },

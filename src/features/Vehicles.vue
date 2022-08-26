@@ -31,7 +31,8 @@
               manufacturer: {{ slotProps.data.manufacturer }}<br />
               cost_in_credits: {{ slotProps.data.cost_in_credits }}<br />
               length: {{ slotProps.data.length }}<br />
-              max_atmosphering_speed: {{ slotProps.data.max_atmosphering_speed }}<br />
+              max_atmosphering_speed: {{ slotProps.data.max_atmosphering_speed
+              }}<br />
               crew: {{ slotProps.data.crew }}<br />
               passengers: {{ slotProps.data.passengers }}<br />
               cargo_capacity: {{ slotProps.data.cargo_capacity }}<br />
