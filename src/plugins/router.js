@@ -5,7 +5,7 @@ import People from "../features/People.vue";
 import Vehicles from "../features/Vehicles.vue";
 import Planets from "../features/Planets.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
-
+//import
 const routes = [
   {
     path: "/",
