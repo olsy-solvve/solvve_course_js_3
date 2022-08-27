@@ -1,7 +1,7 @@
 <template>
   <div>
     <DataView :value="items" layout="grid">
-      <template #list="slotProps">
+      <!-- <template #list="slotProps">
         <div class="p-col-12">
           <div class="planets-details">
             <div>
@@ -22,9 +22,9 @@
             </div>
           </div>
         </div>
-      </template>
+      </template> -->
       <template #grid="slotProps">
-        <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
+        <div style="padding: 0.5em 0;" class="col-12 md:col-4 lg:col-3 xs:col-6">
           <PanelVue :header="slotProps.data.name" style="text-align: center">
             <div class="planets-detail">
               rotation_period: {{ slotProps.data.rotation_period }}<br />
@@ -87,4 +87,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
