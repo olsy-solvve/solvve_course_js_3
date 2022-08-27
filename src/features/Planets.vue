@@ -24,7 +24,7 @@
         </div>
       </template>
       <template #grid="slotProps">
-        <div style="padding: 0.5em" class="p-col-12 p-md-3">
+        <div style="padding: 0.5em 0;" class="col-12 md:col-6 lg:col-3">
           <PanelVue :header="slotProps.data.name" style="text-align: center">
             <div class="planets-detail">
               rotation_period: {{ slotProps.data.rotation_period }}<br />
@@ -88,18 +88,5 @@ export default {
 </script>
 
 <style scoped>
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: inline;
-}
 
-div {
-  font-size: 12px;
-  display: flex;
-  display: inline-block;
-  align-items: center;
-}
 </style>
