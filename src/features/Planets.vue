@@ -1,5 +1,7 @@
 <template>
+  <Preloader v-bind:preloader="preloader"/>
   <div>
+
     <DataView :value="items" layout="grid">
       <template #list="slotProps">
         <div class="p-col-12">
@@ -47,43 +49,48 @@
     v-model:first="offset"
     @page="onPage($event)"
   ></PaginatorVue>
-</template>
+  </template>
 
 <script>
 import axios from "axios";
+import Preloader from "../components/Preloader.vue";
 export default {
-  name: "App",
-  data() {
-    return {
-      items: [],
-      totalItemsCount: 0,
-      offset: 20,
-    };
-  },
-
-  created() {
-    const root = "https://swapi.dev/api/planets/";
-    axios.get(root, {}, {}).then((res) => {
-      Object.entries(res.data.results).forEach(([key, value]) => {
-        this.totalItemsCount = res.data.count;
-        this.items.push(value);
-        this.key = key;
-      });
-    });
-  },
-  methods: {
-    onPage(event) {
-      const root = `https://swapi.dev/api/planets/?page=${event.page + 1}`;
-      axios.get(root, {}, {}).then((res) => {
-        this.items = [];
-        Object.entries(res.data.results).forEach(([key, value]) => {
-          this.totalItemsCount = res.data.count;
-          this.items.push(value);
-          this.key = key;
-        });
-      });
+    name: "App",
+    data() {
+        return {
+            items: [],
+            totalItemsCount: 0,
+            offset: 20,
+            preloader: null,
+        };
     },
-  },
+    created() {
+        const root = "https://swapi.dev/api/planets/";
+        axios.get(root, {}, {}).then((res) => {
+            this.preloader = false;
+            Object.entries(res.data.results).forEach(([key, value]) => {
+                this.totalItemsCount = res.data.count;
+                this.items.push(value);
+                this.key = key;
+            });
+        }).then(this.preloader = true);
+    },
+    methods: {
+        async onPage(event) {
+            
+            const root = `https://swapi.dev/api/planets/?page=${event.page + 1}`;
+            await axios.get(root, {}, {}).then((res) => {
+                this.preloader = false;
+                this.items = [];
+                Object.entries(res.data.results).forEach(([key, value]) => {
+                    this.totalItemsCount = res.data.count;
+                    this.items.push(value);
+                    this.key = key;
+                });
+            }).then(this.preloader = true);
+        },
+    },
+    components: { Preloader }
 };
 </script>
 
