@@ -6,11 +6,14 @@ import Vehicles from "../features/Vehicles.vue";
 import Planets from "../features/Planets.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
 //import
-const routes = [
+export const routes = [
   {
     path: "/",
     name: "Home",
     component: HomePage,
+    meta: {
+      showInNavBar: true,
+    },
   },
   {
     path: "/people",
@@ -18,12 +21,12 @@ const routes = [
     component: People,
   },
   {
-    path: "/Vehicles",
+    path: "/vehicles",
     name: "Vehicles",
     component: Vehicles,
   },
   {
-    path: "/Planets",
+    path: "/planets",
     name: "Planets",
     component: Planets,
   },
@@ -42,6 +45,10 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach(() => {
+  console.log("check token");
 });
 
 export default router;

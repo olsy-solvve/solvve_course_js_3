@@ -108,7 +108,7 @@ export default {
 
       responsiveOptions: [
         {
-          breakpoint: "1024px",
+          breakpoint: this.$primevue.breakpoint.lg,
           numVisible: 3,
           numScroll: 3,
         },

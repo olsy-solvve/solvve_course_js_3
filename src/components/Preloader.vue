@@ -1,19 +1,18 @@
 <template>
-    <div v-if="preloader">
-        loading...
-    </div>
+  <div>
+    <div v-if="preloader">loading...</div>
+  </div>
 </template>
 
 <script>
-    export default {
-        props: {
-            preloader: {
-                preloader: true
-            }
-        }
-    }
+export default {
+  name: "PreLoader",
+  props: {
+    preloader: {
+      default: false,
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

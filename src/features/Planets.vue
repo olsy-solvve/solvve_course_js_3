@@ -1,7 +1,6 @@
 <template>
-  <Preloader v-bind:preloader="preloader"/>
+  <Preloader v-bind:preloader="preloader" />
   <div>
-
     <DataView :value="items" layout="grid">
       <!-- <template #list="slotProps">
         <div class="p-col-12">
@@ -26,7 +25,7 @@
         </div>
       </template> -->
       <template #grid="slotProps">
-        <div style="padding: 0.5em 0;" class="col-12 md:col-4 lg:col-3 xs:col-6">
+        <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
           <PanelVue :header="slotProps.data.name" style="text-align: center">
             <div class="planets-detail">
               rotation_period: {{ slotProps.data.rotation_period }}<br />
@@ -49,51 +48,54 @@
     v-model:first="offset"
     @page="onPage($event)"
   ></PaginatorVue>
-  </template>
+</template>
 
 <script>
 import axios from "axios";
 import Preloader from "../components/Preloader.vue";
 export default {
-    name: "App",
-    data() {
-        return {
-            items: [],
-            totalItemsCount: 0,
-            offset: 20,
-            preloader: null,
-        };
+  name: "App",
+  data() {
+    return {
+      items: [],
+      totalItemsCount: 0,
+      offset: 20,
+      preloader: null,
+    };
+  },
+  created() {
+    const root = "https://swapi.dev/api/planets/";
+    axios
+      .get(root, {}, {})
+      .then((res) => {
+        this.preloader = false;
+        Object.entries(res.data.results).forEach(([key, value]) => {
+          this.totalItemsCount = res.data.count;
+          this.items.push(value);
+          this.key = key;
+        });
+      })
+      .then((this.preloader = true));
+  },
+  methods: {
+    async onPage(event) {
+      const root = `https://swapi.dev/api/planets/?page=${event.page + 1}`;
+      await axios
+        .get(root, {}, {})
+        .then((res) => {
+          this.preloader = false;
+          this.items = [];
+          Object.entries(res.data.results).forEach(([key, value]) => {
+            this.totalItemsCount = res.data.count;
+            this.items.push(value);
+            this.key = key;
+          });
+        })
+        .then((this.preloader = true));
     },
-    created() {
-        const root = "https://swapi.dev/api/planets/";
-        axios.get(root, {}, {}).then((res) => {
-            this.preloader = false;
-            Object.entries(res.data.results).forEach(([key, value]) => {
-                this.totalItemsCount = res.data.count;
-                this.items.push(value);
-                this.key = key;
-            });
-        }).then(this.preloader = true);
-    },
-    methods: {
-        async onPage(event) {
-            
-            const root = `https://swapi.dev/api/planets/?page=${event.page + 1}`;
-            await axios.get(root, {}, {}).then((res) => {
-                this.preloader = false;
-                this.items = [];
-                Object.entries(res.data.results).forEach(([key, value]) => {
-                    this.totalItemsCount = res.data.count;
-                    this.items.push(value);
-                    this.key = key;
-                });
-            }).then(this.preloader = true);
-        },
-    },
-    components: { Preloader }
+  },
+  components: { Preloader },
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

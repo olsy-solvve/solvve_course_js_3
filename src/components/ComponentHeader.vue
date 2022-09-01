@@ -7,28 +7,21 @@
 </template>
 
 <script>
-import axios from "axios";
+import routers from "../plugins/router";
 export default {
-  data() {
-    return { items: [] };
-  },
-  created() {
-    const root = "https://swapi.dev/api/";
-    this.items.push({
-      label: `Home`,
-      icon: "pi pi-fw pi-box",
-      url: `/`,
-    });
-    axios.get(root, {}, {}).then((res) => {
-      Object.entries(res.data).forEach(([key]) => {
-        let nameOfCategory = key.charAt(0).toUpperCase() + key.slice(1);
-        this.items.push({
-          label: nameOfCategory,
+  created() {},
+  computed: {
+    items() {
+      console.log(routers);
+      // routers
+      return [
+        {
+          label: `Home`,
           icon: "pi pi-fw pi-box",
-          url: `/${key}`,
-        });
-      });
-    });
+          to: `/`,
+        },
+      ];
+    },
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <Preloader v-bind:preloader="preloader"/>
+  <Preloader v-bind:preloader="preloader" />
   <div>
     <DataView :value="items" layout="grid">
       <!-- <template #list="slotProps">
@@ -65,30 +65,36 @@ export default {
 
   created() {
     const root = "https://swapi.dev/api/people/";
-    axios.get(root, {}, {}).then((res) => {
-      this.preloader = false;
-      Object.entries(res.data.results).forEach(([key, value]) => {
-        this.totalItemsCount = res.data.count;
-        this.items.push(value);
-        this.key = key;
-      });
-    }).then(this.preloader = true);
-  },
-  methods: {
-    onPage(event) {
-      const root = `https://swapi.dev/api/people/?page=${event.page + 1}`;
-      axios.get(root, {}, {}).then((res) => {
+    axios
+      .get(root, {}, {})
+      .then((res) => {
         this.preloader = false;
-        this.items = [];
         Object.entries(res.data.results).forEach(([key, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
           this.key = key;
         });
-      }).then(this.preloader = true);
+      })
+      .then((this.preloader = true));
+  },
+  methods: {
+    onPage(event) {
+      const root = `https://swapi.dev/api/people/?page=${event.page + 1}`;
+      axios
+        .get(root, {}, {})
+        .then((res) => {
+          this.preloader = false;
+          this.items = [];
+          Object.entries(res.data.results).forEach(([key, value]) => {
+            this.totalItemsCount = res.data.count;
+            this.items.push(value);
+            this.key = key;
+          });
+        })
+        .then((this.preloader = true));
     },
   },
-  components: { Preloader }
+  components: { Preloader },
 };
 </script>
 
