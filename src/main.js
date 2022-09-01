@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./assets/main.css";
+import "./assets/vue.min.css";
 import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
@@ -10,6 +11,7 @@ import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Panel from "primevue/panel";
 import Paginator from "primevue/paginator";
+import PrimeFlex from "primeflex/primeflex.css";
 import Carousel from "primevue/carousel";
 
 const app = createApp(App);
@@ -19,6 +21,7 @@ app.component(`DataView`, DataView);
 app.component("DataViewLayoutOptions", DataViewLayoutOptions);
 app.component("PanelVue", Panel);
 app.component("PaginatorVue", Paginator);
+app.component("PrimeFlex", PrimeFlex);
 app.component("CarouselVue", Carousel);
 
 import Router from "./plugins/router.js";
