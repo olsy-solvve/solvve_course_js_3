@@ -1,4 +1,5 @@
 <template>
+  <Preloader v-bind:preloader="preloader"/>
   <div>
     <DataView :value="items" layout="grid">
       <!-- <template #list="slotProps">
@@ -54,6 +55,7 @@
 
 <script>
 import axios from "axios";
+import Preloader from "../components/Preloader.vue";
 export default {
   name: "App",
   data() {
@@ -61,32 +63,36 @@ export default {
       items: [],
       totalItemsCount: 0,
       offset: 20,
+      preloader: null,
     };
   },
 
   created() {
     const root = "https://swapi.dev/api/vehicles/";
     axios.get(root, {}, {}).then((res) => {
+      this.preloader = false;
       Object.entries(res.data.results).forEach(([key, value]) => {
         this.totalItemsCount = res.data.count;
         this.items.push(value);
         this.key = key;
       });
-    });
+    }).then(this.preloader = true);
   },
   methods: {
     onPage(event) {
       const root = `https://swapi.dev/api/vehicles/?page=${event.page + 1}`;
       axios.get(root, {}, {}).then((res) => {
+        this.preloader = false;
         this.items = [];
         Object.entries(res.data.results).forEach(([key, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
           this.key = key;
         });
-      });
+      }).then(this.preloader = true);
     },
   },
+  components: { Preloader }
 };
 </script>
 
