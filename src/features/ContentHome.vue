@@ -108,7 +108,8 @@ export default {
 
       responsiveOptions: [
         {
-          breakpoint: this.$primevue.breakpoint.lg,
+          //breakpoint: this.$primevue.breakpoint,
+          breakpoint: "1024px",
           numVisible: 3,
           numScroll: 3,
         },
@@ -125,9 +126,7 @@ export default {
       ],
     };
   },
-  created() {
-    // this.brand = `001`
-  },
+
   setup() {
     const getImageUrl = (name) => {
       return new URL(`../../assets/images/${name}.png`, import.meta.url).href;
@@ -137,4 +136,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

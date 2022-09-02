@@ -2,8 +2,11 @@
 
 <template>
   <main>
-    <div>
-      Page Not Found (404)<br />
+    <div class="parent">
+      <div class="block">
+        <br />
+        Page Not Found (404)<br /><br />
+      </div>
       <svg
         id="DarthVaderSVG"
         version="1.1"
@@ -101,5 +104,19 @@
 #DarthVaderSVG {
   width: 320px;
   height: 320px;
+}
+.parent {
+  width: 30%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 35%;
+  overflow: auto;
+}
+
+.block {
+  width: 70%;
+  left: 25%;
+  right: 30%;
 }
 </style>

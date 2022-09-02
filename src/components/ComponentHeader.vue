@@ -12,15 +12,7 @@ export default {
   created() {},
   computed: {
     items() {
-      console.log(routers);
-      // routers
-      return [
-        {
-          label: `Home`,
-          icon: "pi pi-fw pi-box",
-          to: `/`,
-        },
-      ];
+      return routers.options.routes;
     },
   },
 };
