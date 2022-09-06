@@ -3,14 +3,15 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
+      develepers: "develeper.name",
     };
   },
 };
 </script>
 
 <template>
-  <footer>
-    {{ year }}
+  <footer class = "footerTeams">
+    Teams Pet Project    {{ year }}
   </footer>
 </template>
 

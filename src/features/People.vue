@@ -41,15 +41,11 @@
     </DataView>
   </div>
 
-  
-
   <PaginatorVue
-
     :rows="10"
     :totalRecords="totalItemsCount"
     v-model:first="offset"
     @page="onPage($event)"
-
   ></PaginatorVue>
 </template>
 

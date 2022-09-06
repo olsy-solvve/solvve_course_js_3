@@ -4,11 +4,11 @@ import ComponentFooter from "./components/ComponentFooter.vue";
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <ComponentHeader></ComponentHeader>
     <router-view></router-view>
     <ComponentFooter></ComponentFooter>
   </div>
 </template>
 
-<style scoped></style>
+
