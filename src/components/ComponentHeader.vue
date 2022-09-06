@@ -7,8 +7,9 @@
 </template>
 
 <script>
-import axios from "axios";
+import routers from "../plugins/router";
 export default {
+<<<<<<< HEAD
   data() {
     return { items: [] };
   },
@@ -29,6 +30,13 @@ export default {
         });
       });
     });
+=======
+  created() {},
+  computed: {
+    items() {
+      return routers.options.routes;
+    },
+>>>>>>> e9b6f70a5bc889b9a0880c22f2571f5e0daa2832
   },
 };
 </script>
