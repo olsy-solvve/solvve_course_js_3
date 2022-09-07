@@ -63,7 +63,7 @@ export default {
   created() {
     const root = "https://swapi.dev/api/people/";
     axios.get(root, {}, {}).then((res) => {
-      Object.entries(res.data.results).forEach(([key, value]) => {
+      Object.entries(res.data.results).forEach(([, value]) => {
         this.totalItemsCount = res.data.count;
         this.items.push(value);
       });
@@ -74,7 +74,7 @@ export default {
       const root = `https://swapi.dev/api/people/?page=${event.page + 1}`;
       axios.get(root, {}, {}).then((res) => {
         this.items = [];
-        Object.entries(res.data.results).forEach(([key, value]) => {
+        Object.entries(res.data.results).forEach(([, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
         });
