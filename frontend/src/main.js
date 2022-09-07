@@ -8,13 +8,13 @@ import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 
 import PrimeVue from "primevue/config";
-
+import PrimeFlex from "primeflex/primeflex.css";
 import Menubar from "primevue/menubar";
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Panel from "primevue/panel";
 import Paginator from "primevue/paginator";
-
+import Carousel from "primevue/carousel";
 import Dock from "primevue/dock";
 
 const app = createApp(App);
@@ -24,8 +24,9 @@ app.component(`DataView`, DataView);
 app.component("DataViewLayoutOptions", DataViewLayoutOptions);
 app.component("PanelVue", Panel);
 app.component("PaginatorVue", Paginator);
-
+app.component("CarouselVue", Carousel);
 app.component(`Dock`, Dock);
+app.component("PrimeFlex", PrimeFlex);
 
 import Router from "./plugins/router.js";
 import "./assets/main.css";
