@@ -1,10 +1,10 @@
 
 <template>
   <footer class="p-dock p-dock-bottom">
-    <h3>Teams Pet Project {{ year }}</h3>
+    <a>Teams Pet Project {{ year }}</a>
     <Dock :model="items" >
       <template #item="{item}">
-          <h4 :href="item.link">{{item.name}}</h4>
+          <a :href="item.link">{{item.name}}</a>
       </template>
     </Dock>
   </footer>
