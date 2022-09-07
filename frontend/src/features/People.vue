@@ -40,25 +40,16 @@
       </template>
     </DataView>
   </div>
-<<<<<<< HEAD:src/features/People.vue
 
-  <PaginatorVue
-=======
   <Paginator
->>>>>>> master:frontend/src/features/People.vue
     :rows="10"
     :totalRecords="totalItemsCount"
     v-model:first="offset"
     @page="onPage($event)"
-<<<<<<< HEAD:src/features/People.vue
-  ></PaginatorVue>
-=======
   ></Paginator>
->>>>>>> master:frontend/src/features/People.vue
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "App",
   data() {
@@ -75,10 +66,8 @@ export default {
       Object.entries(res.data.results).forEach(([, value]) => {
         this.totalItemsCount = res.data.count;
         this.items.push(value);
-<<<<<<< HEAD:src/features/People.vue
+
         this.key = key;
-=======
->>>>>>> master:frontend/src/features/People.vue
       });
     });
   },
@@ -90,10 +79,8 @@ export default {
         Object.entries(res.data.results).forEach(([, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
-<<<<<<< HEAD:src/features/People.vue
+
           this.key = key;
-=======
->>>>>>> master:frontend/src/features/People.vue
         });
       });
     },

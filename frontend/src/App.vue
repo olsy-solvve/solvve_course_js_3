@@ -11,8 +11,8 @@ import ComponentFooter from "./components/ComponentFooter.vue";
   </div>
 </template>
 <style>
-  .container{
-    display: flex;
-    flex-direction: column;
-};
+.container {
+  display: flex;
+  flex-direction: column;
+}
 </style>
