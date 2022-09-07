@@ -10,6 +10,7 @@ import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Panel from "primevue/panel";
 import Paginator from "primevue/paginator";
+import Dock from 'primevue/dock';
 
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
@@ -18,9 +19,12 @@ app.component(`DataView`, DataView);
 app.component("DataViewLayoutOptions", DataViewLayoutOptions);
 app.component("PanelVue", Panel);
 app.component("PaginatorVue", Paginator);
+app.component(`Dock`, Dock);
 
 import Router from "./plugins/router.js";
 import "./assets/main.css";
 
 app.use(Router);
 app.mount("#app");
+
+

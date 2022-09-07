@@ -10,5 +10,9 @@ import ComponentFooter from "./components/ComponentFooter.vue";
     <ComponentFooter></ComponentFooter>
   </div>
 </template>
-
-
+<style>
+  .container{
+    display: flex;
+    flex-direction: column;
+};
+</style>
