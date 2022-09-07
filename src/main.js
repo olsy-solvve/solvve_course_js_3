@@ -14,8 +14,11 @@ import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Panel from "primevue/panel";
 import Paginator from "primevue/paginator";
+<<<<<<< HEAD
+=======
 import PrimeFlex from "primeflex/primeflex.css";
 import Carousel from "primevue/carousel";
+>>>>>>> e9b6f70a5bc889b9a0880c22f2571f5e0daa2832
 
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
