@@ -5,6 +5,7 @@ import People from "../features/People.vue";
 import Vehicles from "../features/Vehicles.vue";
 import Planets from "../features/Planets.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
+import RegistrPage from "../features/RegistrationForm.vue"
 //import
 export const routes = [
   {
@@ -34,6 +35,11 @@ export const routes = [
     path: "/login",
     name: "Authentication",
     component: AuthPage,
+  },
+  {
+    path: "/register",
+    name: "Registration",
+    component: RegistrPage,
   },
   {
     path: "/:catchAll(.*)",
