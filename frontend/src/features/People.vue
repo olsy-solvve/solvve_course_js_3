@@ -25,7 +25,7 @@
       </template>
       <template #grid="slotProps">
         <div style="padding: 0.5em" class="p-col-12 p-md-3">
-          <PanelVue :header="slotProps.data.name" style="text-align: center">
+          <Panel :header="slotProps.data.name" style="text-align: center">
             <div class="people-detail">
               height: {{ slotProps.data.height }}<br />
               mass: {{ slotProps.data.mass }}<br />
@@ -35,18 +35,26 @@
               birth_year: {{ slotProps.data.birth_year }}<br />
               gender: {{ slotProps.data.gender }}
             </div>
-          </PanelVue>
+          </Panel>
         </div>
       </template>
     </DataView>
   </div>
+<<<<<<< HEAD:src/features/People.vue
 
   <PaginatorVue
+=======
+  <Paginator
+>>>>>>> master:frontend/src/features/People.vue
     :rows="10"
     :totalRecords="totalItemsCount"
     v-model:first="offset"
     @page="onPage($event)"
+<<<<<<< HEAD:src/features/People.vue
   ></PaginatorVue>
+=======
+  ></Paginator>
+>>>>>>> master:frontend/src/features/People.vue
 </template>
 
 <script>
@@ -64,10 +72,13 @@ export default {
   created() {
     const root = "https://swapi.dev/api/people/";
     axios.get(root, {}, {}).then((res) => {
-      Object.entries(res.data.results).forEach(([key, value]) => {
+      Object.entries(res.data.results).forEach(([, value]) => {
         this.totalItemsCount = res.data.count;
         this.items.push(value);
+<<<<<<< HEAD:src/features/People.vue
         this.key = key;
+=======
+>>>>>>> master:frontend/src/features/People.vue
       });
     });
   },
@@ -76,10 +87,13 @@ export default {
       const root = `https://swapi.dev/api/people/?page=${event.page + 1}`;
       axios.get(root, {}, {}).then((res) => {
         this.items = [];
-        Object.entries(res.data.results).forEach(([key, value]) => {
+        Object.entries(res.data.results).forEach(([, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
+<<<<<<< HEAD:src/features/People.vue
           this.key = key;
+=======
+>>>>>>> master:frontend/src/features/People.vue
         });
       });
     },

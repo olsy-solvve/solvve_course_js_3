@@ -1,26 +1,22 @@
 {
-  "name": "solvve_course_js_2",
-  "version": "0.0.0",
+  "name": "solvve_course_js_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "init": "cd frontend && npm i && cd ../backend && npm i",
+    "dev": "cd frontend && npm run dev && cd ../backend && nodemon",
+    "release": "cd frontend && npm run build && cd ../backend && node",
+    "lint": "cd frontend && npm run lint"
   },
-  "dependencies": {
-    "axios": "^0.27.2",
-    "primeicons": "^5.0.0",
-    "primevue": "^3.16.2",
-    "vue": "^3.2.37",
-    "vue-router": "^4.1.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olsy-solvve/solvve_course_js_3.git"
   },
-  "devDependencies": {
-    "@rushstack/eslint-patch": "^1.1.4",
-    "@vitejs/plugin-vue": "^3.0.1",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "eslint": "^8.21.0",
-    "eslint-plugin-vue": "^9.3.0",
-    "prettier": "^2.7.1",
-    "vite": "^3.0.4"
-  }
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olsy-solvve/solvve_course_js_3/issues"
+  },
+  "homepage": "https://github.com/olsy-solvve/solvve_course_js_3#readme"
 }
