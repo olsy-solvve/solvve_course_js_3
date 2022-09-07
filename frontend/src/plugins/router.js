@@ -6,7 +6,7 @@ import Vehicles from "../features/MyVehicles.vue";
 import Planets from "../features/MyPlanets.vue";
 import Starships from "../features/MyStarships.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
-import RegistrPage from "../features/RegistrationForm.vue"
+import RegistrPage from "../features/RegistrationForm.vue";
 //import
 export const routes = [
   {
