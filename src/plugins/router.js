@@ -1,40 +1,74 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../features/ContentHome.vue";
 import AuthPage from "../features/AuthenticationForm.vue";
-import People from "../features/People.vue";
-import Vehicles from "../features/Vehicles.vue";
-import Planets from "../features/Planets.vue";
+import People from "../features/MyPeople.vue";
+import Vehicles from "../features/MyVehicles.vue";
+import Planets from "../features/MyPlanets.vue";
+import Starships from "../features/MyStarships.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
 import RegistrPage from "../features/RegistrationForm.vue"
 //import
 export const routes = [
   {
-    path: "/",
-    name: "Home",
     component: HomePage,
+    path: "/",
+    to: "/",
+    icon: "pi pi-fw pi-box",
+    label: "Home",
     meta: {
       showInNavBar: true,
     },
   },
   {
-    path: "/people",
-    name: "People",
     component: People,
+    path: "/people",
+    to: "/people",
+    icon: "pi pi-fw pi-box",
+    label: "People",
+    meta: {
+      showInNavBar: true,
+    },
   },
   {
-    path: "/vehicles",
-    name: "Vehicles",
     component: Vehicles,
+    path: "/vehicles",
+    to: "/vehicles",
+    icon: "pi pi-fw pi-box",
+    label: "Vehicles",
+    meta: {
+      showInNavBar: true,
+    },
   },
+
   {
-    path: "/planets",
-    name: "Planets",
     component: Planets,
+    path: "/planets",
+    to: "/planets",
+    icon: "pi pi-fw pi-box",
+    label: "Planets",
+    meta: {
+      showInNavBar: true,
+    },
   },
   {
-    path: "/login",
-    name: "Authentication",
+    component: Starships,
+    path: "/starships",
+    to: "/starships",
+    icon: "pi pi-fw pi-box",
+    label: "Starships",
+    meta: {
+      showInNavBar: true,
+    },
+  },
+  {
     component: AuthPage,
+    path: "/login",
+    to: "/login",
+    icon: "pi pi-fw pi-box",
+    label: "Login",
+    meta: {
+      showInNavBar: true,
+    },
   },
   {
     path: "/register",
@@ -54,7 +88,7 @@ const router = createRouter({
 });
 
 router.beforeEach(() => {
-  console.log("check token");
+  console.log("check token in the router.js");
 });
 
 export default router;

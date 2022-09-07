@@ -1,8 +1,7 @@
 <template>
-  <Preloader v-bind:preloader="preloader" />
   <div>
     <DataView :value="items" layout="grid">
-      <!-- <template #list="slotProps">
+      <template #list="slotProps">
         <div class="p-col-12">
           <div class="people-details">
             <div>
@@ -23,10 +22,10 @@
             </div>
           </div>
         </div>
-      </template> -->
+      </template>
       <template #grid="slotProps">
-        <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
-          <PanelVue :header="slotProps.data.name" style="text-align: center">
+        <div style="padding: 0.5em" class="p-col-12 p-md-3">
+          <Panel :header="slotProps.data.name" style="text-align: center">
             <div class="people-detail">
               height: {{ slotProps.data.height }}<br />
               mass: {{ slotProps.data.mass }}<br />
@@ -36,22 +35,21 @@
               birth_year: {{ slotProps.data.birth_year }}<br />
               gender: {{ slotProps.data.gender }}
             </div>
-          </PanelVue>
+          </Panel>
         </div>
       </template>
     </DataView>
   </div>
-  <PaginatorVue
+  <Paginator
     :rows="10"
     :totalRecords="totalItemsCount"
     v-model:first="offset"
     @page="onPage($event)"
-  ></PaginatorVue>
+  ></Paginator>
 </template>
 
 <script>
 import axios from "axios";
-import Preloader from "../components/Preloader.vue";
 export default {
   name: "App",
   data() {
@@ -59,43 +57,46 @@ export default {
       items: [],
       totalItemsCount: 0,
       offset: 20,
-      preloader: null,
     };
   },
 
   created() {
     const root = "https://swapi.dev/api/people/";
-    axios
-      .get(root, {}, {})
-      .then((res) => {
-        this.preloader = false;
-        Object.entries(res.data.results).forEach(([key, value]) => {
-          this.totalItemsCount = res.data.count;
-          this.items.push(value);
-          this.key = key;
-        });
-      })
-      .then((this.preloader = true));
+    axios.get(root, {}, {}).then((res) => {
+      Object.entries(res.data.results).forEach(([key, value]) => {
+        this.totalItemsCount = res.data.count;
+        this.items.push(value);
+      });
+    });
   },
   methods: {
     onPage(event) {
       const root = `https://swapi.dev/api/people/?page=${event.page + 1}`;
-      axios
-        .get(root, {}, {})
-        .then((res) => {
-          this.preloader = false;
-          this.items = [];
-          Object.entries(res.data.results).forEach(([key, value]) => {
-            this.totalItemsCount = res.data.count;
-            this.items.push(value);
-            this.key = key;
-          });
-        })
-        .then((this.preloader = true));
+      axios.get(root, {}, {}).then((res) => {
+        this.items = [];
+        Object.entries(res.data.results).forEach(([key, value]) => {
+          this.totalItemsCount = res.data.count;
+          this.items.push(value);
+        });
+      });
     },
   },
-  components: { Preloader },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline;
+}
+
+div {
+  font-size: 12px;
+  display: flex;
+  display: inline-block;
+  align-items: center;
+}
+</style>
