@@ -25,7 +25,7 @@ export default {
           link: "https://github.com/Rockwell2022",
         },
         {
-          name: "Sergiy",
+          name: "Serhii",
           link: "https://github.com/KarunaGray",
         },
         {
