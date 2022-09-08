@@ -16,6 +16,8 @@ import Panel from "primevue/panel";
 import Paginator from "primevue/paginator";
 import Carousel from "primevue/carousel";
 import Dock from "primevue/dock";
+import InputText from "primevue/inputtext";
+import PrimeButton from "primevue/button";
 
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
@@ -27,6 +29,8 @@ app.component("PaginatorVue", Paginator);
 app.component("CarouselVue", Carousel);
 app.component(`Dock`, Dock);
 app.component("PrimeFlex", PrimeFlex);
+app.component("InputText", InputText);
+app.component("PrimeButton", PrimeButton);
 
 import Router from "./plugins/router.js";
 import "./assets/main.css";

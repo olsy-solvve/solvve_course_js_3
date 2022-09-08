@@ -4,16 +4,10 @@
   <div class="flex mx-auto justify-content-center mt-5">
     <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 my-auto">
       <div class="text-center mb-5">
-        <div class="text-900 text-5xl font-bold">Sign In</div>
-        <div class="text-500 text-2xl font-normal mb-2">
+        <div class="text-900 text-5xl font-bold">Create your Account</div>
+        <div class="text-500 text-2xl font-normal">
           May the Force be with you
         </div>
-        >
-        <span class="text-600 font-medium line-height-3"
-          >Don't have an account?</span
-        >
-        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
-          >Create today!</a
         >
       </div>
 
@@ -28,16 +22,9 @@
         >
         <InputText id="password1" type="password" class="w-full mb-3" />
 
-        <div class="flex align-items-center justify-content-between mb-6">
-          <a
-            class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
-            >Forgot password?</a
-          >
-        </div>
-
         <PrimeButton
-          label="Sign In"
-          icon="pi pi-user"
+          label="Create"
+          icon="pi pi-user-plus"
           class="w-full"
         ></PrimeButton>
       </div>
