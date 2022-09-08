@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/olsy-solvve/solvve_course_js_3/issues"
   },
-  "homepage": "https://github.com/olsy-solvve/solvve_course_js_3#readme"
+  "homepage": "https://github.com/olsy-solvve/solvve_course_js_3#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
