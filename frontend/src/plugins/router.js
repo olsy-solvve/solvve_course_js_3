@@ -62,16 +62,16 @@ export const routes = [
   },
   {
     component: AuthPage,
-    path: "/login",
-    to: "/login",
-    icon: "pi pi-fw pi-box",
-    label: "Login",
+    path: "/signin",
+    to: "/signin",
+    icon: "pi pi-user",
+    label: "Sign In",
     meta: {
       showInNavBar: true,
     },
   },
   {
-    path: "/register",
+    path: "/signup",
     name: "Registration",
     component: RegistrPage,
   },

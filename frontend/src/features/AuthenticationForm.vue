@@ -1,8 +1,8 @@
 <script></script>
 
 <template>
-  <div class="flex mx-auto justify-content-center mt-5">
-    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 my-auto">
+  <div class="flex justify-content-center mt-5">
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 my-auto mx-auto">
       <div class="text-center mb-5">
         <div class="text-900 text-5xl font-bold">Sign In</div>
         <div class="text-500 text-2xl font-normal mb-2">
@@ -12,9 +12,9 @@
         <span class="text-600 font-medium line-height-3"
           >Don't have an account?</span
         >
-        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
-          >Create today!</a
-        >
+        <router-link to="/signup" class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
+          >Create today!
+        </router-link>
       </div>
 
       <div>
