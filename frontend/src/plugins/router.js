@@ -6,8 +6,8 @@ import Vehicles from "../features/MyVehicles.vue";
 import Planets from "../features/MyPlanets.vue";
 import Starships from "../features/MyStarships.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
-import RegistrPage from "../features/RegistrationForm.vue";
-//import
+import axios from "axios";
+import store from "./store.js";
 export const routes = [
   {
     component: HomePage,
@@ -62,19 +62,15 @@ export const routes = [
   },
   {
     component: AuthPage,
-    path: "/signin",
-    to: "/signin",
-    icon: "pi pi-user",
-    label: "Sign In",
+    path: "/login",
+    to: "/login",
+    icon: "pi pi-fw pi-box",
+    label: "Login",
     meta: {
       showInNavBar: true,
     },
   },
-  {
-    path: "/signup",
-    name: "Registration",
-    component: RegistrPage,
-  },
+
   {
     path: "/:catchAll(.*)",
     name: "NotFound",
@@ -88,7 +84,20 @@ const router = createRouter({
 });
 
 router.beforeEach(() => {
-  console.log("check token in the router.js");
+  const get = "http://localhost:3000/auth";
+  axios
+    .get(
+      get,
+      { headers: { Authorization: `Bearer ${localStorage.token}` } },
+      {}
+    )
+    .then((res) => {
+      if (res.data) {
+        store.commit("STATUS_LOGIN");
+      } else {
+        store.commit("STATUS_LOGOUT");
+      }
+    });
 });
 
 export default router;

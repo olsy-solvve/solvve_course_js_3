@@ -34,6 +34,7 @@ app.component("PrimeButton", PrimeButton);
 
 import Router from "./plugins/router.js";
 import "./assets/main.css";
-
+import store from "./plugins/store.js";
+app.use(store);
 app.use(Router);
 app.mount("#app");
