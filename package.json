@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/olsy-solvve/solvve_course_js_3/issues"
   },
-  "homepage": "https://github.com/olsy-solvve/solvve_course_js_3#readme"
+  "homepage": "https://github.com/olsy-solvve/solvve_course_js_3#readme",
+  "dependencies": {
+    "vite": "^3.1.0",
+    "vuex": "^4.0.2"
+  }
 }
