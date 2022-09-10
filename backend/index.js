@@ -1,20 +1,21 @@
 import express from "express";
 import cors from "cors";
 import {getPeople, getPlanets, getStarships, getVehicles} from "./controller.js";
-import users from "./users.json" assert {type: 'json'};
 import jwt from "jsonwebtoken";
-const port = 3000;
+import { readFileSync } from "fs";
+const PORT = 3000;
 let authorizationProc = null;
 
-const keyToken = 'SOLVVE-IS-GRET-COMPANY'
+const keyToken = 'SOLVVE-IS-GREAT-COMPANY';
 const app = express();
+
 app.use(
   cors({
     origin: `*`,
   })
 );
 
-app.listen(3000);
+app.listen(PORT);
 
 app.use(express.json())
 app.use((req, res, next) => {
@@ -28,24 +29,34 @@ app.use((req, res, next) => {
  });
 
  
-app.post('/auth', (req, res) => {
-    for (let user of users) {
-    if (
-      req.body.auth.username === user.login &&
-      req.body.auth.password === user.password
-    ) {
-      return res.status(200).json({
-        id: user.id,
-        login: user.login,
-        token: jwt.sign({ id: user.id }, keyToken, {expiresIn: `30s`}),
-      })
+app.post('/auth', async (req, res) => {
+    // const users = await import('./users.json', { assert: { type: 'json' } }).then(c => c.default); // eslint-disable-line
+    
+    const users = JSON.parse(readFileSync("./users.json"));
+    if (!users) {
+      return res.status(403).json({ message: 'DB fall down' })
     }
-  }
-  return res.status(404).json({ message: 'User not found' })
+
+    const {auth} = req.body;
+    const currentUser = users.find(({login, password}) => (
+      auth.username === login &&
+      auth.password === password
+    ));
+
+    if (currentUser) {
+      return res.status(200).json({
+        id: currentUser.id,
+        login: currentUser.login,
+        token: jwt.sign({ id: currentUser.id }, keyToken, {expiresIn: `30s`}),
+      });
+    }
+    
+
+  return res.status(404).json({ message: 'User not found' });
 })
 
 app.get('/auth', (req, res) => {
-  if (authorizationProc) {res.send(true)} else {res.send(false)};
+  if (authorizationProc) {res.send(true)} else {res.send(false)}
 });
 
 

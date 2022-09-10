@@ -11,6 +11,7 @@ import store from "./store.js";
 export const routes = [
   {
     component: HomePage,
+    name: "home",
     path: "/",
     to: "/",
     icon: "pi pi-fw pi-box",

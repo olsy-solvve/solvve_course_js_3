@@ -1,6 +1,4 @@
 <template>
-  <main>Home Page</main>
-
   <CarouselVue
     :value="wars"
     :numVisible="4"

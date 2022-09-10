@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./index.js",
-    "release": "node ./index.js"
+    "release": "node ./index.js",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path ../.gitignore"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.19"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0"
   }
 }
