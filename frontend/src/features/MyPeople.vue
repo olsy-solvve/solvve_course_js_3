@@ -17,7 +17,29 @@
               gender: {{ slotProps.data.gender }}<br />
               birth_year: {{ slotProps.data.birth_year }}<br />
             </div>
-          </PanelVue>
+            <div class="product-grid-item-content">
+              <!-- <img :src="'/src/images/' + slotProps.data.name + '.jpg'" :alt="slotProps.data.name"/> -->
+              <!-- <img :src="'./img/' + slotProps.data.name + '.png'" :alt="slotProps.data.name"/> -->
+              <img
+                src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"
+                :alt="slotProps.data.name"
+              />
+              <div class="product-name">{{ slotProps.data.name }}</div>
+              <!-- <div class="product-description">{{slotProps.data.rotation_period}}</div> -->
+              <Rating
+                :modelValue="slotProps.data.rating"
+                :readonly="true"
+                :cancel="false"
+              ></Rating>
+            </div>
+            <div class="product-grid-item-bottom">
+              <span class="product-price">${{ slotProps.data.height }}</span>
+              <PrimeButton
+                icon="pi pi-shopping-cart"
+                :disabled="slotProps.data.population === 'OUTOFSTOCK'"
+              ></PrimeButton>
+            </div>
+          </div>
         </div>
       </template>
     </DataView>
@@ -81,4 +103,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import "/src/assets/style.scss";
+</style>

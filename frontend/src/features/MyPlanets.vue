@@ -3,22 +3,40 @@
     <PreLoader :preloader="preloader" />
     <DataView :value="items" layout="grid">
       <template #grid="slotProps">
-        <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
-          <PanelVue :header="slotProps.data.name" style="text-align: center">
-            <div class="people-detail">
-              model: {{ slotProps.data.model }}<br />
-              manufacturer: {{ slotProps.data.manufacturer }}<br />
-              cost_in_credits: {{ slotProps.data.cost_in_credits }}<br />
-              length: {{ slotProps.data.length }}<br />
-              max_atmosphering_speed: {{ slotProps.data.max_atmosphering_speed
-              }}<br />
-              crew: {{ slotProps.data.crew }}<br />
-              passengers: {{ slotProps.data.passengers }}<br />
-              cargo_capacity: {{ slotProps.data.cargo_capacity }}<br />
-              consumables: {{ slotProps.data.consumables }}<br />
-              vehicle_class: {{ slotProps.data.vehicle_class }}<br />
+        <div class="col-12 md:col-4">
+          <div class="product-grid-item card">
+            <div class="product-grid-item-top">
+              <div>
+                <i class="pi pi-tag product-category-icon"></i>
+                <span class="product-category">Planets</span>
+              </div>
+              <!-- <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span> -->
             </div>
-          </PanelVue>
+            <div class="product-grid-item-content">
+              <!-- <img :src="'/src/images/' + slotProps.data.name + '.jpg'" :alt="slotProps.data.name"/> -->
+              <!-- <img :src="'./img/' + slotProps.data.name + '.png'" :alt="slotProps.data.name"/> -->
+              <img
+                src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"
+                :alt="slotProps.data.name"
+              />
+              <div class="product-name">{{ slotProps.data.name }}</div>
+              <!-- <div class="product-description">{{slotProps.data.rotation_period}}</div> -->
+              <Rating
+                :modelValue="slotProps.data.rating"
+                :readonly="true"
+                :cancel="false"
+              ></Rating>
+            </div>
+            <div class="product-grid-item-bottom">
+              <span class="product-price"
+                >${{ slotProps.data.rotation_period }}</span
+              >
+              <PrimeButton
+                icon="pi pi-shopping-cart"
+                :disabled="slotProps.data.population === 'OUTOFSTOCK'"
+              ></PrimeButton>
+            </div>
+          </div>
         </div>
       </template>
     </DataView>
@@ -79,4 +97,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import "/src/assets/style.scss";
+</style>
