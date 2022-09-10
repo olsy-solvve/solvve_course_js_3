@@ -43,8 +43,7 @@ export default {
     this.preloader = true;
     getPeople({ page: 1 })
       .then((res) => {
-        console.log(this.$router)
-        Object.entries(res.data.results).forEach(([key, value]) => {
+          Object.entries(res.data.results).forEach(([key, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
           this.key = key;
@@ -56,7 +55,9 @@ export default {
   },
   methods: {
     purchaseItem(){
+      if(!this.$store.state.data){
       this.$router.push({ name: "auth" });
+      } else {alert(`show me your BitCoin!`)}
     },
     generateRandImg(){
       return Math.floor(Math.random() * 7);
