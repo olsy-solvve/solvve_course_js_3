@@ -5,7 +5,12 @@
       <template #grid="slotProps">
         <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
           <PanelVue :header="slotProps.data.name" style="text-align: center">
-            <img :src="'/src/assets/images.jpg/starships/' + generateRandImg() + '.jpg'" :alt="slotProps.data.brand"/>
+            <img
+              :src="
+                '/src/assets/images.jpg/starships/' + generateRandImg() + '.jpg'
+              "
+              :alt="slotProps.data.brand"
+            />
             <div class="people-detail">
               model: {{ slotProps.data.model }}<br />
               manufacturer: {{ slotProps.data.manufacturer }}<br />
@@ -60,7 +65,7 @@ export default {
       });
   },
   methods: {
-     generateRandImg(){
+    generateRandImg() {
       return Math.floor(Math.random() * 6);
     },
     onPage(event) {

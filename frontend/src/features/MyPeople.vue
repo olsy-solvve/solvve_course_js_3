@@ -5,14 +5,16 @@
       <template #grid="slotProps">
         <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
           <PanelVue :header="slotProps.data.name" style="text-align: center">
-            <img :src="'/src/images/people/' + generateRandImg() + '.jpeg'" :alt="slotProps.data.brand"/>
-              <div class="people-detail">
+            <img
+              :src="'/src/images/people/' + generateRandImg() + '.jpeg'"
+              :alt="slotProps.data.brand"
+            />
+            <div class="people-detail">
               Name: {{ slotProps.data.name }}<br />
               height: {{ slotProps.data.height }}<br />
               mass: {{ slotProps.data.mass }}<br />
               hair_color: {{ slotProps.data.hair_color }}<br />
-              skin_color: {{ slotProps.data.skin_color
-              }}<br />
+              skin_color: {{ slotProps.data.skin_color }}<br />
               eye_color: {{ slotProps.data.eye_color }}<br />
               gender: {{ slotProps.data.gender }}<br />
               birth_year: {{ slotProps.data.birth_year }}<br />
@@ -58,7 +60,7 @@ export default {
       });
   },
   methods: {
-    generateRandImg(){
+    generateRandImg() {
       return Math.floor(Math.random() * 7);
     },
     onPage(event) {
