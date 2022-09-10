@@ -38,4 +38,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.p-dock {
+  position: relative !important;
+}
+</style>

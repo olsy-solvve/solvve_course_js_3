@@ -25,4 +25,7 @@ export default {
 .style {
   margin-right: "auto";
 }
+.p-menubar {
+  margin: 0 0.5em;
+}
 </style>
