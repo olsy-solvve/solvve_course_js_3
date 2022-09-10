@@ -13,12 +13,7 @@
               <!-- <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span> -->
             </div>
             <div class="product-grid-item-content">
-              <!-- <img :src="'/src/images/' + slotProps.data.name + '.jpg'" :alt="slotProps.data.name"/> -->
-              <!-- <img :src="'./img/' + slotProps.data.name + '.png'" :alt="slotProps.data.name"/> -->
-              <img
-                src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png"
-                :alt="slotProps.data.name"
-              />
+              <img :src="'/src/images/planets/' + generateRandImg() + '.jpeg'" :alt="slotProps.data.brand"/>
               <div class="product-name">{{ slotProps.data.name }}</div>
               <!-- <div class="product-description">{{slotProps.data.rotation_period}}</div> -->
               <Rating
@@ -32,7 +27,7 @@
                 >${{ slotProps.data.rotation_period }}</span
               >
               <PrimeButton
-                icon="pi pi-shopping-cart"
+                icon="pi pi-shopping-cart"  @click="purchaseItem()"
                 :disabled="slotProps.data.population === 'OUTOFSTOCK'"
               ></PrimeButton>
             </div>
@@ -77,6 +72,14 @@ export default {
       });
   },
   methods: {
+    purchaseItem(){
+      if(!this.$store.state.data){
+      this.$router.push({ name: "auth" });
+      } else {alert(`show me your BitCoin!`)}
+    },
+    generateRandImg(){
+      return Math.floor(Math.random() * 7);
+    },
     onPage(event) {
       this.preloader = true;
       this.items = [];
