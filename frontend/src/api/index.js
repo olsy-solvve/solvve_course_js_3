@@ -21,7 +21,7 @@ api.interceptors.response.use(
     return response;
   },
   (err) => {
-    alert(err.stasusCode);
+    console.log(err.stasusCode);
     return err;
   }
 );
