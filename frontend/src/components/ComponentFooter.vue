@@ -1,5 +1,5 @@
 <template>
-  <footer class="p-dock p-dock-bottom">
+  <footer class="p-dock-bottom">
     <a>Teams Pet Project {{ year }}</a>
     <Dock :model="items">
       <template #item="{ item }">
