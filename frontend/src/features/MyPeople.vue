@@ -3,14 +3,19 @@
     <PreLoader :preloader="preloader" />
     <DataView :value="items" layout="grid">
       <template #grid="slotProps">
-        <div class="col-12 md:col-4">
-          <div class="product-grid-item card">
-            <div class="product-grid-item-top">
-              <div>
-                <i class="pi pi-tag product-category-icon"></i>
-                <span class="product-category">People</span>
-              </div>
-              <!-- <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span> -->
+        <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
+          <PanelVue :header="slotProps.data.name" style="text-align: center">
+            <img :src="'/src/images/people/' + generateRandImg() + '.jpeg'" :alt="slotProps.data.brand"/>
+              <div class="people-detail">
+              Name: {{ slotProps.data.name }}<br />
+              height: {{ slotProps.data.height }}<br />
+              mass: {{ slotProps.data.mass }}<br />
+              hair_color: {{ slotProps.data.hair_color }}<br />
+              skin_color: {{ slotProps.data.skin_color
+              }}<br />
+              eye_color: {{ slotProps.data.eye_color }}<br />
+              gender: {{ slotProps.data.gender }}<br />
+              birth_year: {{ slotProps.data.birth_year }}<br />
             </div>
             <div class="product-grid-item-content">
               <!-- <img :src="'/src/images/' + slotProps.data.name + '.jpg'" :alt="slotProps.data.name"/> -->
@@ -75,6 +80,9 @@ export default {
       });
   },
   methods: {
+    generateRandImg(){
+      return Math.floor(Math.random() * 7);
+    },
     onPage(event) {
       this.preloader = true;
       this.items = [];
