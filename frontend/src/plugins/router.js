@@ -63,6 +63,7 @@ export const routes = [
   },
   {
     component: AuthPage,
+    name: "auth",
     path: "/login",
     to: "/login",
     icon: "pi pi-fw pi-box",

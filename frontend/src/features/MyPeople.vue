@@ -11,11 +11,7 @@
               height: {{ slotProps.data.height }}<br />
               mass: {{ slotProps.data.mass }}<br />
               hair_color: {{ slotProps.data.hair_color }}<br />
-              skin_color: {{ slotProps.data.skin_color
-              }}<br />
-              eye_color: {{ slotProps.data.eye_color }}<br />
-              gender: {{ slotProps.data.gender }}<br />
-              birth_year: {{ slotProps.data.birth_year }}<br />
+              <PrimeButton icon="pi pi-shopping-cart" @click="purchaseItem()"></PrimeButton>
             </div>
           </PanelVue>
         </div>
@@ -47,6 +43,7 @@ export default {
     this.preloader = true;
     getPeople({ page: 1 })
       .then((res) => {
+        console.log(this.$router)
         Object.entries(res.data.results).forEach(([key, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
@@ -58,6 +55,9 @@ export default {
       });
   },
   methods: {
+    purchaseItem(){
+      this.$router.push({ name: "auth" });
+    },
     generateRandImg(){
       return Math.floor(Math.random() * 7);
     },
