@@ -3,17 +3,33 @@
     <PreLoader :preloader="preloader" />
     <DataView :value="items" layout="grid">
       <template #grid="slotProps">
-        <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
-          <PanelVue :header="slotProps.data.name" style="text-align: center">
-            <img :src="'/src/images/people/' + generateRandImg() + '.jpeg'" :alt="slotProps.data.brand"/>
-              <div class="people-detail">
-              Name: {{ slotProps.data.name }}<br />
-              height: {{ slotProps.data.height }}<br />
-              mass: {{ slotProps.data.mass }}<br />
-              hair_color: {{ slotProps.data.hair_color }}<br />
-              <PrimeButton icon="pi pi-shopping-cart" @click="purchaseItem()"></PrimeButton>
+        <div class="col-12 md:col-4">
+          <div class="product-grid-item card">
+            <div class="product-grid-item-top">
+              <div>
+                <i class="pi pi-tag product-category-icon"></i>
+                <span class="product-category">People</span>
+              </div>
             </div>
-          </PanelVue>
+            <div class="product-grid-item-content">
+              <img :src="'/src/images/people/' + generateRandImg() + '.jpeg'" :alt="slotProps.data.brand"/>
+              <div class="product-name">{{ slotProps.data.name }}</div>
+              <Rating
+                :modelValue="slotProps.data.rating"
+                :readonly="true"
+                :cancel="false"
+              ></Rating>
+            </div>
+            <div class="product-grid-item-bottom">
+              <span class="product-price"
+                >${{ slotProps.data.height }}</span
+              >
+              <PrimeButton
+                icon="pi pi-shopping-cart"  @click="purchaseItem()"
+                :disabled="slotProps.data.population === 'OUTOFSTOCK'"
+              ></PrimeButton>
+            </div>
+          </div>
         </div>
       </template>
     </DataView>
@@ -82,4 +98,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+  @import "/src/assets/style.scss";
+  </style>
