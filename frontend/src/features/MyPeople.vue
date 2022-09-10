@@ -5,18 +5,17 @@
       <template #grid="slotProps">
         <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
           <PanelVue :header="slotProps.data.name" style="text-align: center">
-            <div class="people-detail">
-              model: {{ slotProps.data.model }}<br />
-              manufacturer: {{ slotProps.data.manufacturer }}<br />
-              cost_in_credits: {{ slotProps.data.cost_in_credits }}<br />
-              length: {{ slotProps.data.length }}<br />
-              max_atmosphering_speed: {{ slotProps.data.max_atmosphering_speed
+            <img :src="'/src/images/people/' + generateRandImg() + '.jpeg'" :alt="slotProps.data.brand"/>
+              <div class="people-detail">
+              Name: {{ slotProps.data.name }}<br />
+              height: {{ slotProps.data.height }}<br />
+              mass: {{ slotProps.data.mass }}<br />
+              hair_color: {{ slotProps.data.hair_color }}<br />
+              skin_color: {{ slotProps.data.skin_color
               }}<br />
-              crew: {{ slotProps.data.crew }}<br />
-              passengers: {{ slotProps.data.passengers }}<br />
-              cargo_capacity: {{ slotProps.data.cargo_capacity }}<br />
-              consumables: {{ slotProps.data.consumables }}<br />
-              vehicle_class: {{ slotProps.data.vehicle_class }}<br />
+              eye_color: {{ slotProps.data.eye_color }}<br />
+              gender: {{ slotProps.data.gender }}<br />
+              birth_year: {{ slotProps.data.birth_year }}<br />
             </div>
           </PanelVue>
         </div>
@@ -59,6 +58,9 @@ export default {
       });
   },
   methods: {
+    generateRandImg(){
+      return Math.floor(Math.random() * 7);
+    },
     onPage(event) {
       this.preloader = true;
       this.items = [];
