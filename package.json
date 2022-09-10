@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "init": "cd frontend && npm i && cd ../backend && npm i",
-    "dev": "cd frontend && npm run dev && cd ../backend && nodemon",
+    "start": "cd frontend && start npm run dev && cd ../backend && start nodemon",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && nodemon",
     "release": "cd frontend && npm run build && cd ../backend && node",
-    "lint": "cd frontend && npm run lint"
+    "lint": "cd frontend && npm run lint && cd ../backend && npm run lint"
   },
   "repository": {
     "type": "git",

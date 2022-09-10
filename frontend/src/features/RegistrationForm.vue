@@ -1,8 +1,10 @@
 <script></script>
 
 <template>
-  <div class="flex mx-auto justify-content-center mt-5">
-    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 my-auto">
+  <div class="flex justify-content-center mt-5">
+    <div
+      class="surface-card p-4 shadow-2 border-round w-full lg:w-6 my-auto mx-auto"
+    >
       <div class="text-center mb-5">
         <div class="text-900 text-5xl font-bold">Create your Account</div>
         <div class="text-500 text-2xl font-normal">

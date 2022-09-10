@@ -5,7 +5,14 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  // set token to headers
+  if (localStorage.token) {
+    const authLink = "http://localhost:3000/auth";
+    axios.get(
+      authLink,
+      { headers: { Authorization: `Bearer ${localStorage.token}` } },
+      {}
+    );
+  }
   return config;
 });
 
@@ -14,7 +21,7 @@ api.interceptors.response.use(
     return response;
   },
   (err) => {
-    alert(err.stasusCode);
+    console.log(err.stasusCode);
     return err;
   }
 );
