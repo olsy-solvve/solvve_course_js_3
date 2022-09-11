@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import {getPeople, getPlanets, getStarships, getVehicles} from "./controller.js";
 import jwt from "jsonwebtoken";
-import { readFileSync } from "fs";
+import { fstat, readFileSync, writeFileSync } from "fs";
 const PORT = 3000;
 let authorizationProc = null;
 
@@ -39,7 +39,7 @@ app.post('/auth', async (req, res) => {
 
     const {auth} = req.body;
     const currentUser = users.find(({login, password}) => (
-      auth.username === login &&
+      auth.login === login &&
       auth.password === password
     ));
 
@@ -59,6 +59,26 @@ app.get('/auth', (req, res) => {
   if (authorizationProc) {res.send(true)} else {res.send(false)}
 });
 
+app.post('/signup', async (req, res) => {
+  
+  const users = JSON.parse(readFileSync("./users.json"));
+  if (!users) {
+    return res.status(403).json({ message: 'DB fall down' })
+  }
+  
+  const {newUser} = req.body;
+  newUser.id = users[Object.keys(users).length - 1].id + 1;
+  users.push(newUser);
+
+  let newDataUser = JSON.stringify(users, null, 2);
+  writeFileSync('./users.json', newDataUser);
+
+  return res.status(200).json({
+    id: newUser.id,
+    login: newUser.login,
+    token: jwt.sign({ id: newUser.id }, keyToken, {expiresIn: `30s`}),
+  });
+})
 
 app.get("/people", async (req, res) => {
   const page = req.query.page || 1;

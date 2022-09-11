@@ -7,6 +7,7 @@ import Planets from "../features/MyPlanets.vue";
 import Starships from "../features/MyStarships.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
 import SignUp from "../features/RegistrationForm.vue";
+import ProfilePage from "../features/ProfileContent.vue"
 import axios from "axios";
 import store from "./store.js";
 export const routes = [

@@ -1,24 +1,37 @@
 [
-    {
-      "id": 1,
-      "login": "user1",
-      "password": "pwd1"
-    },
-    { 
-      "id": 2,
-      "login": "user2",
-      "password": "pwd2"
-    },
-    { 
-      "id": 3,
-      "login": "user3",
-      "password": "pwd3"
-    },
- 
-    { 
-      "id": 4,
-      "login": "u",
-      "password": "1"
-    }
-
+  {
+    "id": 1,
+    "login": "user1",
+    "password": "pwd1"
+  },
+  {
+    "id": 2,
+    "login": "user2",
+    "password": "pwd2"
+  },
+  {
+    "id": 3,
+    "login": "user3",
+    "password": "pwd3"
+  },
+  {
+    "id": 4,
+    "login": "u",
+    "password": "1"
+  },
+  {
+    "id": 5,
+    "login": "Andrey",
+    "password": "1234"
+  },
+  {
+    "id": 6,
+    "login": "Egor",
+    "password": "Egor"
+  },
+  {
+    "id": 7,
+    "login": "Ivan",
+    "password": "Ivan"
+  }
 ]
