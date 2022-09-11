@@ -48,7 +48,6 @@ export default {
         <div class="text-500 text-2xl font-normal mb-2">
           May the Force be with you
         </div>
-        >
         <span class="text-600 font-medium line-height-3"
           >Don't have an account?</span
         >
