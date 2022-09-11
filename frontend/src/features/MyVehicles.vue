@@ -3,28 +3,39 @@
     <PreLoader :preloader="preloader" />
     <DataView :value="items" layout="grid">
       <template #grid="slotProps">
-        <div style="padding: 0.5em 0" class="col-12 md:col-4 lg:col-3 xs:col-6">
-          <PanelVue :header="slotProps.data.name" style="text-align: center">
-            <img
-              :src="
-                '/src/assets/images.jpg/vehicles/' + generateRandImg() + '.jpg'
-              "
-              :alt="slotProps.data.brand"
-            />
-            <div class="people-detail">
-              model: {{ slotProps.data.model }}<br />
-              manufacturer: {{ slotProps.data.manufacturer }}<br />
-              cost_in_credits: {{ slotProps.data.cost_in_credits }}<br />
-              length: {{ slotProps.data.length }}<br />
-              max_atmosphering_speed: {{ slotProps.data.max_atmosphering_speed
-              }}<br />
-              crew: {{ slotProps.data.crew }}<br />
-              passengers: {{ slotProps.data.passengers }}<br />
-              cargo_capacity: {{ slotProps.data.cargo_capacity }}<br />
-              consumables: {{ slotProps.data.consumables }}<br />
-              vehicle_class: {{ slotProps.data.vehicle_class }}<br />
+        <div class="col-12 md:col-4">
+          <div class="product-grid-item card">
+            <div class="product-grid-item-top">
+              <div>
+                <i class="pi pi-tag product-category-icon"></i>
+                <span class="product-category">Vehicles</span>
+              </div>
+              <!-- <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span> -->
             </div>
-          </PanelVue>
+            <div class="product-grid-item-content">
+              <img
+                :src="'/src/images/vehicles/' + generateRandImg() + '.jpeg'"
+                :alt="slotProps.data.brand"
+              />
+              <div class="product-name">{{ slotProps.data.name }}</div>
+              <!-- <div class="product-description">{{slotProps.data.rotation_period}}</div> -->
+              <Rating
+                :modelValue="slotProps.data.rating"
+                :readonly="true"
+                :cancel="false"
+              ></Rating>
+            </div>
+            <div class="product-grid-item-bottom">
+              <span class="product-price"
+                >${{ slotProps.data.cargo_capacity }}</span
+              >
+              <PrimeButton
+                icon="pi pi-shopping-cart"
+                @click="purchaseItem()"
+                :disabled="slotProps.data.population === 'OUTOFSTOCK'"
+              ></PrimeButton>
+            </div>
+          </div>
         </div>
       </template>
     </DataView>
@@ -65,8 +76,15 @@ export default {
       });
   },
   methods: {
+    purchaseItem() {
+      if (!this.$store.state.data) {
+        this.$router.push({ name: "auth" });
+      } else {
+        alert(`show me your BitCoin!`);
+      }
+    },
     generateRandImg() {
-      return Math.floor(Math.random() * 6);
+      return Math.floor(Math.random() * 7);
     },
     onPage(event) {
       this.preloader = true;
@@ -88,4 +106,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import "/src/assets/style.scss";
+</style>

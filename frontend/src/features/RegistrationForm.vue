@@ -10,7 +10,6 @@
         <div class="text-500 text-2xl font-normal">
           May the Force be with you
         </div>
-        >
       </div>
 
       <div>
