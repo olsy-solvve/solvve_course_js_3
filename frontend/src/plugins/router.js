@@ -6,6 +6,7 @@ import Vehicles from "../features/MyVehicles.vue";
 import Planets from "../features/MyPlanets.vue";
 import Starships from "../features/MyStarships.vue";
 import PageNotFound from "../features/error responces/Error_404.vue";
+import SignUp from "../features/RegistrationForm.vue";
 import axios from "axios";
 import store from "./store.js";
 export const routes = [
@@ -66,11 +67,17 @@ export const routes = [
     name: "auth",
     path: "/login",
     to: "/login",
-    icon: "pi pi-fw pi-box",
+    icon: "pi pi-user",
     label: "Login",
     meta: {
       showInNavBar: true,
     },
+  },
+  {
+    component: SignUp,
+    name: "signup",
+    path: "/signup",
+    to: "signup",
   },
 
   {
