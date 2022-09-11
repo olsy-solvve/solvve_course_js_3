@@ -135,7 +135,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .p-carousel{
-    margin: 0.5em;
-  }
+.p-carousel {
+  margin: 0.5em;
+}
 </style>

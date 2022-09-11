@@ -12,7 +12,10 @@
               </div>
             </div>
             <div class="product-grid-item-content">
-              <img :src="'/src/images/starships/' + generateRandImg() + '.jpeg'" :alt="slotProps.data.brand"/>
+              <img
+                :src="'/src/images/starships/' + generateRandImg() + '.jpeg'"
+                :alt="slotProps.data.brand"
+              />
               <div class="product-name">{{ slotProps.data.name }}</div>
               <!-- <div class="product-description">{{slotProps.data.rotation_period}}</div> -->
               <Rating
@@ -26,7 +29,8 @@
                 >${{ slotProps.data.cargo_capacity }}</span
               >
               <PrimeButton
-                icon="pi pi-shopping-cart"  @click="purchaseItem()"
+                icon="pi pi-shopping-cart"
+                @click="purchaseItem()"
                 :disabled="slotProps.data.population === 'OUTOFSTOCK'"
               ></PrimeButton>
             </div>
@@ -71,12 +75,14 @@ export default {
       });
   },
   methods: {
-    purchaseItem(){
-      if(!this.$store.state.data){
-      this.$router.push({ name: "auth" });
-      } else {alert(`show me your BitCoin!`)}
+    purchaseItem() {
+      if (!this.$store.state.data) {
+        this.$router.push({ name: "auth" });
+      } else {
+        alert(`show me your BitCoin!`);
+      }
     },
-    generateRandImg(){
+    generateRandImg() {
       return Math.floor(Math.random() * 7);
     },
     onPage(event) {

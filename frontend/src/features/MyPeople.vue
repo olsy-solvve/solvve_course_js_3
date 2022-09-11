@@ -12,7 +12,10 @@
               </div>
             </div>
             <div class="product-grid-item-content">
-              <img :src="'/src/images/people/' + generateRandImg() + '.jpeg'" :alt="slotProps.data.brand"/>
+              <img
+                :src="'/src/images/people/' + generateRandImg() + '.jpeg'"
+                :alt="slotProps.data.brand"
+              />
               <div class="product-name">{{ slotProps.data.name }}</div>
               <Rating
                 :modelValue="slotProps.data.rating"
@@ -21,11 +24,10 @@
               ></Rating>
             </div>
             <div class="product-grid-item-bottom">
-              <span class="product-price"
-                >${{ slotProps.data.height }}</span
-              >
+              <span class="product-price">${{ slotProps.data.height }}</span>
               <PrimeButton
-                icon="pi pi-shopping-cart"  @click="purchaseItem()"
+                icon="pi pi-shopping-cart"
+                @click="purchaseItem()"
                 :disabled="slotProps.data.population === 'OUTOFSTOCK'"
               ></PrimeButton>
             </div>
@@ -59,7 +61,7 @@ export default {
     this.preloader = true;
     getPeople({ page: 1 })
       .then((res) => {
-          Object.entries(res.data.results).forEach(([key, value]) => {
+        Object.entries(res.data.results).forEach(([key, value]) => {
           this.totalItemsCount = res.data.count;
           this.items.push(value);
           this.key = key;
@@ -70,12 +72,14 @@ export default {
       });
   },
   methods: {
-    purchaseItem(){
-      if(!this.$store.state.data){
-      this.$router.push({ name: "auth" });
-      } else {alert(`show me your BitCoin!`)}
+    purchaseItem() {
+      if (!this.$store.state.data) {
+        this.$router.push({ name: "auth" });
+      } else {
+        alert(`show me your BitCoin!`);
+      }
     },
-    generateRandImg(){
+    generateRandImg() {
       return Math.floor(Math.random() * 7);
     },
     onPage(event) {
@@ -99,5 +103,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "/src/assets/style.scss";
-  </style>
+@import "/src/assets/style.scss";
+</style>
