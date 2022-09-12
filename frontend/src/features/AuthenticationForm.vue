@@ -4,7 +4,7 @@ export default {
   data() {
     return {
       token: localStorage.token,
-      username: null,
+      login: null,
       password: null,
       authStatus: null,
     };
@@ -18,7 +18,7 @@ export default {
           auth,
           {
             auth: {
-              username: this.username,
+              login: this.login,
               password: this.password,
             },
           },
@@ -27,6 +27,7 @@ export default {
         .then((res) => {
           this.token = res.data.token;
           localStorage.token = res.data.token;
+          localStorage.username = res.data.login;
         })
         .then(() => {
           this.$router.push({ name: "home" });
@@ -48,7 +49,6 @@ export default {
         <div class="text-500 text-2xl font-normal mb-2">
           May the Force be with you
         </div>
-        >
         <span class="text-600 font-medium line-height-3"
           >Don't have an account?</span
         >
@@ -64,7 +64,7 @@ export default {
           >Email</label
         >
         <InputText
-          v-model="username"
+          v-model="login"
           id="email1"
           type="text"
           class="w-full mb-3"
@@ -79,13 +79,6 @@ export default {
           type="password"
           class="w-full mb-3"
         />
-
-        <div class="flex align-items-center justify-content-between mb-6">
-          <a
-            class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
-            >Forgot password?</a
-          >
-        </div>
 
         <PrimeButton
           label="Sign In"

@@ -11,8 +11,8 @@
 
 a,
 .green {
-  
-  color: rgb(246, 242, 247);
+  text-decoration: none;
+  color: rgb(1, 22, 15);
   transition: 0.4s;
 }
 
