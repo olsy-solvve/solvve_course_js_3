@@ -47,7 +47,7 @@ app.post('/auth', async (req, res) => {
       return res.status(200).json({
         id: currentUser.id,
         login: currentUser.login,
-        token: jwt.sign({ id: currentUser.id }, keyToken, {expiresIn: `30s`}),
+        token: jwt.sign({ id: currentUser.id }, keyToken, {expiresIn: `300s`}),
       });
     }
     
