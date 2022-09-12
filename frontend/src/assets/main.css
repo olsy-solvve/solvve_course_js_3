@@ -11,13 +11,8 @@
 
 a,
 .green {
-<<<<<<< HEAD
   text-decoration: none;
   color: rgb(1, 22, 15);
-=======
-  
-  color: rgb(246, 242, 247);
->>>>>>> b750da2075309e485da919e463657bc0a8adbaa4
   transition: 0.4s;
 }
 
