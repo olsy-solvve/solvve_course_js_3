@@ -42,6 +42,6 @@ export default {
   position: relative !important;
 }
 .p-dock-bottom {
-     margin : 1em 0.5em;
+  margin: 1em 0.5em;
 }
 </style>

@@ -5,7 +5,7 @@ export default {
     return {
       token: localStorage.token,
       login: null,
-      password: null
+      password: null,
     };
   },
   created() {},
@@ -53,7 +53,7 @@ export default {
         <label for="email1" class="block text-900 font-medium mb-2"
           >Email</label
         >
-        <InputText 
+        <InputText
           v-model="login"
           id="email1"
           type="text"
@@ -64,10 +64,10 @@ export default {
           >Password</label
         >
         <InputText
-          v-model="password" 
+          v-model="password"
           id="password1"
-          type="password" 
-          class="w-full mb-3" 
+          type="password"
+          class="w-full mb-3"
         />
 
         <PrimeButton
