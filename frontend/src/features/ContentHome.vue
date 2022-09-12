@@ -8,7 +8,7 @@
     :responsiveOptions="responsiveOptions"
   >
     <template #header>
-      <h2>Star Wars Shop</h2>
+      <h2 class="flex justify-content-center font-bold text-4xl">Star Wars Shop</h2>
     </template>
 
     <template #item="slotProps">
