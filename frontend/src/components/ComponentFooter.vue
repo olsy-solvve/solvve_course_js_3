@@ -1,6 +1,6 @@
 <template>
   <footer class="p-dock p-dock-bottom">
-    <a class="p-dock-bottom">Teams Pet Project {{ year }}</a>
+    <a class="p-dock-bottom">Team Pet Project {{ year }}</a>
     <Dock :model="items">
       <template #item="{ item }">
         <a :href="item.link">{{ item.name }}</a>
@@ -40,5 +40,8 @@ export default {
 <style>
 .p-dock {
   position: relative !important;
+}
+.p-dock-bottom {
+     margin : 1em 0.5em;
 }
 </style>
