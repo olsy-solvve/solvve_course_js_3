@@ -27,7 +27,7 @@
               <span class="product-price">${{ slotProps.data.height }}</span>
               <PrimeButton
                 icon="pi pi-shopping-cart"
-                @click="purchaseItem()"
+                @click = "purchaseItem()"
                 :disabled="slotProps.data.population === 'OUTOFSTOCK'"
               ></PrimeButton>
             </div>
@@ -35,6 +35,15 @@
         </div>
       </template>
     </DataView>
+    <Dialog header="Header" v-model:visible="display" >
+      <template #header>
+        <h3>Oh, sorry</h3>
+      </template>
+      You don't have enough Imperial Credits to buy it
+      <template #footer>
+        <PrimeButton label="Okey" icon="pi pi-check" autofocus @click="display=false" />
+      </template>
+    </Dialog>
   </div>
   <PaginatorVue
     :rows="10"
@@ -45,6 +54,7 @@
 </template>
 
 <script>
+import { withScopeId } from "vue";
 import { getPeople } from "../api/index.js";
 import PreLoader from "../components/Preloader.vue";
 
@@ -55,6 +65,7 @@ export default {
       totalItemsCount: 0,
       preloader: true,
       offset: 0,
+      display: false,
     };
   },
   created() {
@@ -76,7 +87,7 @@ export default {
       if (!this.$store.state.data) {
         this.$router.push({ name: "auth" });
       } else {
-        alert(`show me your BitCoin!`);
+        this.display = true;
       }
     },
     generateRandImg() {

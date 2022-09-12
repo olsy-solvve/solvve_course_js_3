@@ -47,7 +47,7 @@ app.post('/auth', async (req, res) => {
       return res.status(200).json({
         id: currentUser.id,
         login: currentUser.login,
-        token: jwt.sign({ id: currentUser.id }, keyToken, {expiresIn: `30s`}),
+        token: jwt.sign({ id: currentUser.id }, keyToken, {expiresIn: `300s`}),
       });
     }
     
@@ -76,7 +76,7 @@ app.post('/signup', async (req, res) => {
   return res.status(200).json({
     id: newUser.id,
     login: newUser.login,
-    token: jwt.sign({ id: newUser.id }, keyToken, {expiresIn: `30s`}),
+    token: jwt.sign({ id: newUser.id }, keyToken, {expiresIn: `300s`}),
   });
 })
 

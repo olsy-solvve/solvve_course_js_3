@@ -18,6 +18,7 @@ import Carousel from "primevue/carousel";
 import Dock from "primevue/dock";
 import InputText from "primevue/inputtext";
 import PrimeButton from "primevue/button";
+import Dialog from 'primevue/dialog';
 
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });
@@ -31,6 +32,7 @@ app.component(`Dock`, Dock);
 app.component("PrimeFlex", PrimeFlex);
 app.component("InputText", InputText);
 app.component("PrimeButton", PrimeButton);
+app.component("Dialog", Dialog);
 
 import Router from "./plugins/router.js";
 import "./assets/main.css";
