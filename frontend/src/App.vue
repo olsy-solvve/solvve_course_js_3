@@ -6,8 +6,8 @@ import ComponentFooter from "./components/ComponentFooter.vue";
 <template>
   <div class="container">
     <ComponentHeader></ComponentHeader>
-    <router-view></router-view>
     <ComponentFooter></ComponentFooter>
+    <router-view></router-view>
   </div>
 </template>
 <style>
